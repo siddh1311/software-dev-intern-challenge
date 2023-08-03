@@ -28,10 +28,26 @@ interface Frame {
 }
 
 const calculateOpenings = (frames: Frame[]): number => {
-  const openings = 0;
-
+  let openings: number = 0;
+  /*
+      I would define an open scissor when the y-distance from top to bottom blade is greater than 1.
+      I would define a closed scissor when y2 and y3 are the same.
+      ASSUME: If the scissor starts open, then closes I count it as 1 opening.
+      ==> With my definition: When a scissor goes from open to close that is one opening.
+    */
+  let wasOpen: boolean = false;
   // Write your algorithm
-
+  frames.forEach(function (frame) {
+    const distance = frame.y2 - frame.y3;
+    // scissor is above the threshold of open
+    if (distance >= 1) {
+      wasOpen = true;
+    }
+    // when scissor is closed, and it was open before increment openings
+    if (frame.y2 === frame.y3 && wasOpen) {
+      openings++;
+    }
+  });
   console.log(`**** Openings: ${openings} ****`);
   return openings;
 };
