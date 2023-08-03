@@ -31,7 +31,11 @@ const calculateOpenings = (frames: Frame[]): number => {
   let openings: number = 0;
   /*
       I would define an open scissor when the y-distance from top to bottom blade is greater than 1.
-      I would define a closed scissor when y2 and y3 are the same.
+      => In the Desmos graph, the max-x coordinate for both blades is 1, however in the JSON files the blades are
+         length 2. Therefor, scaling the scissor accordingly I believe that a distance of >= 1 is a reasonable threshold
+         for an open scissor.
+      I would define a closed scissor when y2 and y3 are the equal.
+      => The threshold for the scissor being closed should be minimum y-value both blades can reach.
       ASSUME: If the scissor starts open, then closes I count it as 1 opening.
       ==> With my definition: When a scissor goes from open to close that is one opening.
     */
