@@ -31,9 +31,11 @@ Besides these examples, there are a lot of other cases how the data could be col
 Q1. The frame can be mirrored or flipped across both axis which would change the x, y coordinates for the center, top, and middle blades. 
 Additionally, the scissor can be rotated a certain degree from the center of the scissor. Furthermore, the scissor can be moved between 
 frames.
+
 Q2. I created the algorithm to relatively calculate the distance between the top and bottom blade, so it would not matter if 
 the scissor was rotated, moved, or flipped along any axis. For the close threshold, I check whether the top.y = bottom.y, so 
 it doesn't matter if the scissor was altered in the ways mentioned before.
+
 Q3. First I would pick a random number between, say 3-1000, for the number of frames. Then, I would randomly generate a starting state
 for the scissor (open, closed, or partially open/close). Next, I would determine the range of coordinates for the scissor, 
 which I would derive from the maximum angle the blades can move from the center (eg. min-max x2, min-max x3, min-max y2, min-max y3). 
